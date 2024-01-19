@@ -1,6 +1,6 @@
 import React from "react";
 import { AppBar, Toolbar, Typography, useMediaQuery, Box } from "@mui/material";
-import Logo from "../assets/logo.gif";
+import Logo from "../assets/logo.png";
 import CustomLink from "../utils/CustomLink";
 import Drawer from "./drawer";
 import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
@@ -62,7 +62,7 @@ export default function Navbar(props) {
 
             <Box sx={{ mr: 2 }}>
               <a href="/">
-                <img alt="" style={{ maxWidth: "45px", height: "auto" }} src={Logo} />
+                <img alt="" style={{ maxWidth: "95px", height: "auto" }} src={Logo} />
               </a>
             </Box>
 
