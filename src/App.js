@@ -14,7 +14,7 @@ const NotFound = lazy(() => import("./utils/NotFound"));
 
 const channel = process.env.REACT_APP_CHANNEL,
   twitchId = process.env.REACT_APP_TWITCH_ID,
-  ARCHIVE_API_BASE = process.env.REACT_APP_ARCHIVE_API_BASE;
+  ARCHIVE_API_BASE = process.env.REACT_APP_VODS_API_BASE;
 
 export default function App() {
   let darkTheme = createTheme({
