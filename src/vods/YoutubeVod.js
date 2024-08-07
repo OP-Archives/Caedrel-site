@@ -18,7 +18,7 @@ export default function Vod(props) {
   const location = useLocation();
   const isPortrait = useMediaQuery("(orientation: portrait)");
   const { vodId } = useParams();
-  const { type, ARCHIVE_API_BASE, channel, twitchId } = props;
+  const { type, VODS_API_BASE, channel, twitchId } = props;
   const [vod, setVod] = useState(undefined);
   const [youtube, setYoutube] = useState(undefined);
   const [drive, setDrive] = useState(undefined);
@@ -33,7 +33,7 @@ export default function Vod(props) {
 
   useEffect(() => {
     const fetchVod = async () => {
-      await fetch(`${ARCHIVE_API_BASE}/vods/${vodId}`, {
+      await fetch(`${VODS_API_BASE}/vods/${vodId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -50,7 +50,7 @@ export default function Vod(props) {
     };
     fetchVod();
     return;
-  }, [vodId, ARCHIVE_API_BASE, channel]);
+  }, [vodId, VODS_API_BASE, channel]);
 
   useEffect(() => {
     if (!vod) return;
@@ -82,6 +82,7 @@ export default function Vod(props) {
       }
     }
     setPart({ part: tmpPart, timestamp: timestamp });
+    return;
   }, [location.search, youtube]);
 
   useEffect(() => {
@@ -92,6 +93,7 @@ export default function Vod(props) {
         break;
       }
     }
+    return;
   }, [currentTime, vod, playerRef]);
 
   useEffect(() => {
@@ -99,10 +101,15 @@ export default function Vod(props) {
     const vodDuration = toSeconds(vod.duration);
     let totalYoutubeDuration = 0;
     for (let data of youtube) {
+      if (!data.duration) {
+        totalYoutubeDuration += process.env.REACT_APP_DEFAULT_DELAY;
+        continue;
+      }
       totalYoutubeDuration += data.duration;
     }
     const tmpDelay = vodDuration - totalYoutubeDuration < 0 ? 0 : vodDuration - totalYoutubeDuration;
     setDelay(tmpDelay);
+    return;
   }, [youtube, vod]);
 
   const handlePartChange = (evt) => {
@@ -123,7 +130,7 @@ export default function Vod(props) {
     navigator.clipboard.writeText(`${window.location.origin}${window.location.pathname}?t=${toHMS(currentTime)}`);
   };
 
-  if (vod === undefined || drive === undefined || chapter === undefined || part === undefined || delay === undefined) return <Loading />;
+  if (vod === undefined || drive === undefined || part === undefined || delay === undefined) return <Loading />;
 
   if (youtube.length === 0) return <NotFound channel={channel} />;
 
@@ -193,7 +200,7 @@ export default function Vod(props) {
           setPart={setPart}
           twitchId={twitchId}
           channel={channel}
-          ARCHIVE_API_BASE={ARCHIVE_API_BASE}
+          VODS_API_BASE={VODS_API_BASE}
           setUserChatDelay={setUserChatDelay}
         />
       </Box>
