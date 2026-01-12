@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Box, Typography, Pagination, Grid, useMediaQuery, PaginationItem, TextField, InputAdornment, FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import SimpleBar from "simplebar-react";
 import Footer from "../utils/Footer";
