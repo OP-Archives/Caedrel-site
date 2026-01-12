@@ -9,12 +9,12 @@ import localizedFormat from "dayjs/plugin/localizedFormat.js";
 dayjs.extend(localizedFormat);
 
 export default function Vod(props) {
-  const { vod, gridSize } = props;
+  const { vod } = props;
   const DEFAULT_VOD = vod.youtube.length > 0 ? `/youtube/${vod.id}` : vod.games.length > 0 ? `/games/${vod.id}` : `#`;
   const DEFAULT_THUMBNAIL = vod.thumbnail_url ? vod.thumbnail_url : vod.games.length > 0 ? vod.games[0].thumbnail_url : sadge;
 
   return (
-    <Grid item xs={gridSize} sx={{ maxWidth: "18rem", flexBasis: "18rem" }}>
+    <Grid size="auto" sx={{ maxWidth: "20rem", flexBasis: "20rem" }}>
       <Box
         sx={{
           overflow: "hidden",
