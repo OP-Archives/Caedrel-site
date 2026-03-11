@@ -1,6 +1,6 @@
-# MOONMOON
+# Caedrel-site
 
-Watch all of MOONMOON's Vods with Chat Replay!
+Watch all of Caedrel's Vods with Chat Replay!
 
 ## Available Scripts
 
@@ -33,7 +33,7 @@ Fixes ESLint errors automatically.
 - React 19
 - Vite
 - Material-UI
-- Video.js (via @op-archives/vod-components)
+- @op-archives/vod-components
 
 ## License
 
