@@ -1,4 +1,3 @@
-import Logo from '../assets/logo.png';
 import CustomLink from '../utils/CustomLink';
 import Drawer from './drawer';
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
