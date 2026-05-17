@@ -1,6 +1,6 @@
 import { useEffect, Component, ReactNode } from 'react';
-import CustomLink from './CustomLink';
 import Logo from '../assets/loading.gif';
+import CustomLink from './CustomLink';
 
 interface ErrorViewProps {
   channel: string;

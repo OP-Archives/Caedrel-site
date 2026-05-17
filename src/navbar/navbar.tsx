@@ -1,8 +1,8 @@
+import { Video, AlertCircle } from 'lucide-react';
 import { TwitterIcon, YouTubeIcon, InstagramIcon, TikTokIcon, TwitchIcon } from '../assets/icons';
 import CustomLink from '../utils/CustomLink';
 import { useMediaQuery } from '../utils/useMediaQuery';
 import Drawer from './drawer';
-import { Video, AlertCircle } from 'lucide-react';
 
 const socials = [
   { path: `https://twitter.com/caedrel`, icon: <TwitterIcon className="text-primary" /> },

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import CustomLink from './CustomLink';
 import Logo from '../assets/loading.gif';
+import CustomLink from './CustomLink';
 
 export default function NotFound({ channel }: { channel: string }) {
   useEffect(() => {

@@ -1,34 +1,36 @@
-const eslint = require('@eslint/js');
-const react = require('eslint-plugin-react');
-const reactHooks = require('eslint-plugin-react-hooks');
+const importX = require('eslint-plugin-import-x');
 const prettier = require('eslint-plugin-prettier');
 const tseslint = require('typescript-eslint');
+const reactCompiler = require('eslint-plugin-react-compiler');
 
-module.exports = tseslint.config(
-  eslint.configs.recommended,
+module.exports = [
   ...tseslint.configs.recommended,
   {
     plugins: {
-      react,
-      'react-hooks': reactHooks,
+      'import-x': importX,
       prettier,
+      'react-compiler': reactCompiler,
     },
     rules: {
-      'react/prop-types': 'off',
-      'react/react-in-jsx-scope': 'off',
-      'no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+      'react-compiler/react-compiler': 'error',
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       'no-console': ['error', { allow: ['warn', 'error', 'info'] }],
       'no-case-declarations': 'off',
+      '@typescript-eslint/no-explicit-any': 'warn',
       'prettier/prettier': 'error',
-    },
-    settings: {
-      react: {
-        version: 'detect',
-      },
+      'import-x/no-duplicates': 'error',
+      'import-x/order': [
+        'error',
+        {
+          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+          'newlines-between': 'never',
+          alphabetize: { order: 'asc', caseInsensitive: true },
+        },
+      ],
     },
   },
   {
-    files: ['src/**/*.{js,jsx}'],
+    files: ['src/**/*.ts', 'src/**/*.tsx'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -57,6 +59,6 @@ module.exports = tseslint.config(
     },
   },
   {
-    ignores: ['prod/', 'node_modules/'],
-  }
-);
+    ignores: ['build/', 'node_modules/', '.yalc/'],
+  },
+];
