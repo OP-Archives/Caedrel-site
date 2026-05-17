@@ -1,24 +1,54 @@
 <!doctype html>
-<html lang="en" style="background-color: #0e0e10">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#0e0e10" />
 
     <!-- HTML Meta Tags -->
-    <title>%VITE_CHANNEL%</title>
-    <meta name="description" content="Watch all of MOONMOON's Vods with Chat Replay!" />
+    <title>Caedrel</title>
+    <meta name="description" content="Watch all of Caedrel's Vods with Chat Replay!" />
+
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="Caedrel" />
+    <meta itemprop="description" content="Watch all of Caedrel's Vods with Chat Replay!" />
+    <meta itemprop="image" content="/favicon.ico" />
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://caedrel.tv" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Caedrel" />
+    <meta property="og:description" content="Watch all of Caedrel's Vods with Chat Replay!" />
+    <meta property="og:image" content="/favicon.ico" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Caedrel" />
+    <meta name="twitter:description" content="Watch all of Caedrel's Vods with Chat Replay!" />
+    <meta name="twitter:image" content="/favicon.ico" />
 
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://static-cdn.jtvnw.net" />
+    <link rel="dns-prefetch" href="https://static-cdn.jtvnw.net" />
+
     <link rel="preconnect" href="https://cdn.frankerfacez.com" />
-    <link rel="preconnect" href="https://emotes.overpowered.tv" />
+    <link rel="dns-prefetch" href="https://cdn.frankerfacez.com" />
+
+    <link rel="preconnect" href="https://cdn.betterttv.net" />
+    <link rel="dns-prefetch" href="https://cdn.betterttv.net" />
+
     <link rel="preconnect" href="https://cdn.7tv.app" />
+    <link rel="dns-prefetch" href="https://cdn.7tv.app" />
+
+    <link rel="preconnect" href="%VITE_ARCHIVE_API_BASE%" crossorigin />
+    <link rel="dns-prefetch" href="%VITE_ARCHIVE_API_BASE%" />
+
+    <link rel="preload" href="/loading.gif" as="image" />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run the app.</noscript>
     <div id="root"></div>
-    <script type="module" src="/src/index.jsx"></script>
+    <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>

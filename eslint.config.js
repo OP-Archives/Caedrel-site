@@ -2,9 +2,11 @@ const eslint = require('@eslint/js');
 const react = require('eslint-plugin-react');
 const reactHooks = require('eslint-plugin-react-hooks');
 const prettier = require('eslint-plugin-prettier');
+const tseslint = require('typescript-eslint');
 
-module.exports = [
+module.exports = tseslint.config(
   eslint.configs.recommended,
+  ...tseslint.configs.recommended,
   {
     plugins: {
       react,
@@ -14,16 +16,10 @@ module.exports = [
     rules: {
       'react/prop-types': 'off',
       'react/react-in-jsx-scope': 'off',
-      'no-unused-vars': 'warn',
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
       'no-console': ['error', { allow: ['warn', 'error', 'info'] }],
       'no-case-declarations': 'off',
       'prettier/prettier': 'error',
-      'no-restricted-imports': [
-        'error',
-        {
-          patterns: [{ regex: '^@mui/[^/]+$' }],
-        },
-      ],
     },
     settings: {
       react: {
@@ -61,6 +57,6 @@ module.exports = [
     },
   },
   {
-    ignores: ['build/', 'node_modules/'],
-  },
-];
+    ignores: ['prod/', 'node_modules/'],
+  }
+);
