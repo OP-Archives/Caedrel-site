@@ -1,4 +1,4 @@
-import { AlertCircle, Home, Video, Menu } from 'lucide-react';
+import { AlertCircle, Home, Video, Menu, BookOpen } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import CustomLink from '../utils/CustomLink';
 
@@ -14,6 +14,7 @@ interface DrawerProps {
 const mainLinks = [
   { title: `Home`, path: `/`, icon: <Home className="text-primary" size={20} /> },
   { title: `Vods`, path: `/vods`, icon: <Video className="text-primary" size={20} /> },
+  { title: `Library`, path: `/library`, icon: <BookOpen className="text-primary" size={20} /> },
   {
     title: `Issues`,
     path: `${import.meta.env.VITE_GITHUB}/issues`,

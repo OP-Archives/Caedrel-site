@@ -1,4 +1,4 @@
-import { Video, AlertCircle } from 'lucide-react';
+import { Video, AlertCircle, BookOpen } from 'lucide-react';
 import { TwitterIcon, YouTubeIcon, InstagramIcon, TikTokIcon, TwitchIcon } from '../assets/icons';
 import CustomLink from '../utils/CustomLink';
 import { useMediaQuery } from '../utils/useMediaQuery';
@@ -58,6 +58,14 @@ export default function Navbar({ channel }: NavbarProps) {
                   <div className="flex justify-center items-center gap-1">
                     <Video className="text-primary mr-0.5" size={24} />
                     <span className="text-primary font-semibold text-lg">Vods</span>
+                  </div>
+                </CustomLink>
+              </div>
+              <div className="mr-2">
+                <CustomLink href="/library">
+                  <div className="flex justify-center items-center gap-1">
+                    <BookOpen className="text-primary mr-0.5" size={24} />
+                    <span className="text-primary font-semibold text-lg">Library</span>
                   </div>
                 </CustomLink>
               </div>

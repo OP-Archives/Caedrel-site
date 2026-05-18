@@ -13,7 +13,10 @@ import ErrorBoundary from './utils/ErrorBoundary';
 import Loading from './utils/Loading';
 import { queryClient } from './utils/queryClient';
 import Vods, { vodsLoader } from './vods/Vods';
+import { chaptersLoader } from './library/ChaptersLibrary';
+
 const NotFound = lazy(() => import('./utils/NotFound'));
+const ChaptersLibrary = lazy(() => import('./library/ChaptersLibrary'));
 const YoutubeVod = lazy(() =>
   Promise.all([import('@op-archives/vod-components'), import('@op-archives/vod-components/index.css')]).then((m) => ({
     default: m[0].YoutubeVod,
@@ -63,6 +66,7 @@ const router = createBrowserRouter(
       <Route element={<MainLayout />}>
         <Route path="/" element={<Vods />} loader={vodsLoader} />
         <Route path="/vods" element={<Vods />} loader={vodsLoader} />
+        <Route path="/library" element={<ChaptersLibrary />} loader={chaptersLoader} />
         <Route path="*" element={<NotFound channel={channel} />} />
       </Route>
       <Route
