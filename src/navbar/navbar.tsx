@@ -20,8 +20,7 @@ export default function Navbar({ channel }: NavbarProps) {
   const isMobile = useMediaQuery('(max-width: 800px)');
 
   return (
-    <div className="flex-1">
-      <header className="bg-dark-light shadow-lg">
+    <header className="bg-dark-light shadow-lg">
         <div className="flex items-center px-4 py-2">
           <div className="flex items-center flex-1">
             {isMobile && <Drawer socials={socials} />}
@@ -86,6 +85,5 @@ export default function Navbar({ channel }: NavbarProps) {
           )}
         </div>
       </header>
-    </div>
   );
 }
