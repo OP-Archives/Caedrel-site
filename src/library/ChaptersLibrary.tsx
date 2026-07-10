@@ -9,6 +9,7 @@ import Loading from '../utils/Loading';
 import PaginationControls from '../utils/PaginationControls';
 import { useChapters, prefetchNextPageChapters } from '../utils/useChapters';
 import { useListFilters } from '../utils/useListFilters';
+import { queryClient } from '../utils/queryClient';
 import { useMediaQuery } from '../utils/useMediaQuery';
 import GameCard from './GameCard';
 

@@ -1,4 +1,3 @@
-import { useQueryClient } from '@tanstack/react-query';
 import { useEffect, useState, useRef, useMemo } from 'react';
 import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
 import type SimpleBarCore from 'simplebar-core';
@@ -10,6 +9,7 @@ import Loading from '../utils/Loading';
 import PaginationControls from '../utils/PaginationControls';
 import { useListFilters } from '../utils/useListFilters';
 import { useVods, prefetchNextPageVods } from '../utils/useVods';
+import { queryClient } from '../utils/queryClient';
 import Vod from './Vod';
 
 const FILTERS = ['Default', 'Date', 'Title', 'Game'] as const;
